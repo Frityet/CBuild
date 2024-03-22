@@ -17,20 +17,6 @@
  * along with CBuild.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "cbuild.h"
-#include "pkg-config.h"
-
-target(test, EXECUTABLE) {
-    add_glob("test-src/*.c");
-    add_include_directories("test-src");
-    add_flags("-Wall", "-Wextra", "-Werror");
-    add_flags("-Og");
-    add_flags("-g");
-
-    struct PkgConfigResult result = pkg_config("raylib");
-    if (not result.success) {
-        fprintf(stderr, "Failed to find raylib");
-        exit(1);
-    }
-    add_package(result);
-};
+int add(int a, int b) {
+    return a + b;
+}

@@ -86,10 +86,10 @@ static void add_package(BuildInfo_t *info, struct PkgConfigResult res)
         return;
     }
 
-    (add_flags)(info, res.cflags.count, res.cflags.values);
-    (add_include_directories)(info, res.include_directories.count, res.include_directories.values);
-    (add_library_directories)(info, res.library_directories.count, res.library_directories.values);
-    (add_libraries)(info, res.libraries.count, res.libraries.values);
+    (add_flags)(info, res.cflags.count, (const char **)res.cflags.values);
+    (add_include_directories)(info, res.include_directories.count, (const char **)res.include_directories.values);
+    (add_library_directories)(info, res.library_directories.count, (const char **)res.library_directories.values);
+    (add_libraries)(info, res.libraries.count, (const char **)res.libraries.values);
 }
 
 #define add_package(...) add_package($build_info$, __VA_ARGS__)
