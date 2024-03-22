@@ -1,0 +1,4 @@
+*.o
+test
+build
+build.dSYM
